@@ -21,8 +21,10 @@ export class TemplateFormComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form);
-
     console.log(this.usuario);
+    this.http.post('https://httpbin.org/post', form.value)
+    .map(res => res)
+    .subscribe(dados => console.log(dados));
   }
 
   aplicaCssErro(campo) {
